@@ -1,0 +1,42 @@
+{% extends 'contacts/main.html' %}
+{% block content %}
+<div class="header-bar">
+    <div>
+        <h1> Hello {{request.user|title}}</h1>
+    </div>
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+
+<div class="search-add-wrapper">
+    <form method="GET" style=" display: flex; width:70%">
+    <input type="text" name='search-area' value="{{search_input}}" style="width:70%"/>
+    <input class="button" type="submit" value="Search">
+</form>
+<a href="{% url 'contact-create' %}"><button class="create"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button></a>
+</div>
+
+
+<div class="filter">
+    
+</div>
+<table>
+    <tr>
+        <th style="width:70%">Name</th>
+        <th style="width:15%"></th>
+        <th style="width:15%"></th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td style=" text-align: center; vertical-align: middle; height: 30px;  text-transform: capitalize;"><a href="{% url 'contact' contact.id %}">{{contact.name}}</a></td>
+         <td class="edit-button"><a href="{% url 'contact-update' contact.id %}"><button class="edit">Edit <i class="fa-solid fa-pencil"></i></button></a></td>
+         <td><a href="{% url 'contact-delete' contact.id %}"><button class="delete">Delete <i class="fa-solid fa-trash-can"></i></button></a></td>
+    </tr>
+    {% empty %}
+    <h3>No Contacts in the list</h3>
+    {% endfor %}
+</table>
+{% endblock content %}
