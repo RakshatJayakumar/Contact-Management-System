@@ -25,7 +25,7 @@ SECRET_KEY = '2+s9#g5@-1a1a@l@18($++_*)(-l-z8jl(q6t69!h7xvjzgmz('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['x22245766-contactmanagementsystem-env1.eba-epfgcyqr.ap-south-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
