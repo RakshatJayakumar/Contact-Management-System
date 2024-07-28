@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+"""
+This script serves as the entry point for Django's command-line utility for administrative tasks.
+It sets the default settings module for the Django project and executes the command-line utility.
+"""
+
 import os
 import sys
 
